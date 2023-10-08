@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+
+  <base href="">
+
+  <title>Vvveb -  Import Wordpress Plugin</title>
+
+  <link href="css/admin.css" rel="stylesheet">
+  <link href="libs/media/media.css" rel="stylesheet">
+</head>
+
+
+<body>
+
+  <div id="container">
+
+    <div class="sidebar" data-v-copy-from="index.html,.sidebar">
+    </div>
+
+
+    <div class="main">
+
+      <div class="clearfix top-header" data-v-copy-from="index.html,.top-header">
+
+      </div>
+
+        <input type="hidden" name="action" id="action" value="save">
+        <div class="actions">
+          <div class="title">
+            <h4 class="text-muted mt-2">
+              <i class="icon-logo-wordpress"></i>&ensp;
+              <span>Import Wordpress content</span>
+            </h4>
+          </div>
+          <div class="btns">
+<!--
+          <button type="submit" href="" class="btn btn-primary btn-icon ms-1" title="Save post">
+            <i class="icon-create-outline"></i> Save settings
+          </button>
+-->
+          </div>
+        </div>
+        <div>
+          <div id="main-content">
+
+         	<div class="notifications" data-v-notifications data-v-copy-from="index.html,.notifications"></div>
+
+            <div class="content clearfix settings">
+
+				 
+			<div class="card my-4">
+			  <div class="card-body">
+			    <h5 class="card-title">Import local Wordpress data</h5>
+			    <p class="card-text">Upload a Wordpress xml file to start importing</p>
+
+
+
+			    <a href title="Upload xml or sql file" class="btn btn-primary btn-icon ms-1 d-inline-block" title="Upload xml or sql file" data-bs-toggle="collapse" data-bs-target=".upload-collapse" aria-expanded="false">
+			      <i class="la la-cloud-upload-alt la-lg"></i> Upload file
+			    </a>
+
+
+			    <form id="upload" method="post" enctype="multipart/form-data" class="upload-collapse collapse">
+			      <input type="hidden" name="action" value="upload">
+			      <div>
+				<h3>Drop or choose files to upload</h3>
+
+				<input type="file" name="file" onchange="upload.submit()" accept="text/xml, .xml">
+
+				<div class="status"></div>
+			      </div>
+			    </form>
+
+
+
+			  </div>
+			</div>
+
+                  
+            </div>
+          </div>
+    </div>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script id="admin-js" type="module" src="../../js/admin.js"></script>
+  <script type="module" src="../../js/admin.js"></script>
+
+
+</body>
+</html>
