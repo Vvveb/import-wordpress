@@ -23,8 +23,6 @@
 namespace Vvveb\Plugins\ImportWordpress\Controller;
 
 use \Vvveb\System\Import\Rss;
-use \Vvveb\System\Import\Sql;
-use \Vvveb\System\Import\Xml;
 use function Vvveb\__;
 use Vvveb\Controller\Base;
 use function Vvveb\htmlToText;
@@ -71,16 +69,19 @@ class Settings extends Base {
 		//$post_data   = $this->post->get(['slug' => $data['slug']]) ?? [];
 		$post_data            = false;
 		$category_id          = false;
-		$data['excerpt']      = $data['excerpt'] ? $data['excerpt'] : '';//substr(htmlToText($data['content']), 0, 200);
+		$data['excerpt']      = $data['excerpt'] ? $data['excerpt'] : ''; //substr(htmlToText($data['content']), 0, 200);
+
+		$language_id = $this->global['language_id'];
 
 		if (! $post_data) {
 			$data =
 				[
-					'post' => $this->global + $data + ['post_content' => [
-						1 => $data + $this->global,
-					]],
+					'post'         => $data + $this->global,
+					'post_content' => [
+						$language_id => $data + $this->global,
+					],
+					'site_id' => [$this->global['site_id']],
 				] + $this->global;
-
 			$post_data = $this->post->add($data);
 
 			if ($category_id) {
@@ -89,12 +90,14 @@ class Settings extends Base {
 			}
 		} else {
 			//if slug already exists update post
-			$data = $this->global + [
-				'post' => $post_data + $data + ['post_content' => [
-					1=> $post_data + $data,
-				]],
+			$data = [
+				'post'         => $post_data + $data + $this->global,
+				'post_content' => [
+					$language_id => $post_data + $data + $this->global,
+				],
 				'post_id' => $post_data['post_id'],
-			];
+				'site_id' => [$this->global['site_id']],
+			] + $this->global;
 			$result = $this->post->edit($data);
 
 			if ($category_id) {

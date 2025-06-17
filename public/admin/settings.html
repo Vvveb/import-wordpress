@@ -5,9 +5,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="../../favicon.ico">
+  <link rel="icon" href="/favicon.ico">
 
   <base href="">
 
@@ -36,16 +37,15 @@
         <div class="actions">
           <div class="title">
             <h4 class="text-muted mt-2">
-              <i class="icon-logo-wordpress"></i>&ensp;
-              <span>Import Wordpress content</span>
+              <i class="icon-logo-wordpress"></i>
+              Import Wordpress content
             </h4>
           </div>
           <div class="btns">
-<!--
-          <button type="submit" href="" class="btn btn-primary btn-icon ms-1" title="Save post">
-            <i class="icon-create-outline"></i> Save settings
-          </button>
--->
+			<a href="{$this.adminPath}index.php?module=plugin/plugins" title="Plugins list"
+					class="btn btn-icon btn-outline-secondary me-2">
+						<i class="la la-arrow-left"></i><span>Plugins list</span>
+			</a>  
           </div>
         </div>
         <div>
@@ -68,7 +68,7 @@
 			    </a>
 
 
-			    <form id="upload" method="post" enctype="multipart/form-data" class="upload-collapse collapse">
+			    <form id="upload" method="post" enctype="multipart/form-data" class="upload-collapse collapse mt-5">
 			      <input type="hidden" name="action" value="upload">
 			      <div>
 				<h3>Drop or choose files to upload</h3>
@@ -90,12 +90,10 @@
     </div>
   </div>
 
-  <script src="js/jquery.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script id="admin-js" type="module" src="../../js/admin.js"></script>
-  <script type="module" src="../../js/admin.js"></script>
-
+  <script id="admin-js" type="module" src="/js/admin.js"></script>
+  <script type="module" src="/js/admin.js"></script>
 
 </body>
 </html>

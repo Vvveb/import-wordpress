@@ -30,7 +30,7 @@ Author: givanz
 Version: 0.1
 Thumb: import-wordpress.svg
 Author url: https://www.vvveb.com
-Settings: /admin/?module=plugins/import-wordpress/settings
+Settings: /admin/index.php?module=plugins/import-wordpress/settings
 */
 
 use function Vvveb\__;
@@ -47,14 +47,14 @@ class ImportWordpressPlugin {
 		Event::on('Vvveb\Controller\Base', 'init-menu', __CLASS__, function ($menu) use ($admin_path) {
 			$menu['plugins']['items']['import-wordpress'] = [
 				'name'     => __('Import Wordpress'),
-				'url'      => $admin_path . '?module=plugins/import-wordpress/settings',
+				'url'      => $admin_path . 'index.php?module=plugins/import-wordpress/settings',
 				'icon-img' => PUBLIC_PATH . 'plugins/import-wordpress/import-wordpress.svg',
 				'module'   => 'plugins/import-wordpress/settings',
 				'action'   => 'index',
 			];
 
 			return [$menu];
-		}, 20);
+		});
 	}
 
 	function app() {
